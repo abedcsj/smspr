@@ -1,19 +1,25 @@
 package com.example.smspr.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
 
-@RestController
+@RequestMapping("")
+@Controller
 public class DefaultPageController {
 
     @GetMapping("/index")
-    public String index(@RequestParam int test1, @RequestParam int test2) {
-        return "haha";
+    public String index(){
+        return "index";
     }
-
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
 
 
 }
