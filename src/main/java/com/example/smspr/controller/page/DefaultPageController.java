@@ -11,11 +11,10 @@ public class DefaultPageController {
     //2024-07-09
     @GetMapping("/index")
     public String index(){
-        return "page1";
+        return "index";
     }
-
     //아무것도 안 입력했을 때도 index로 가게함
-    @GetMapping({"","/","index2"})
+    @GetMapping({"","/"})
     public String empty(){
         //return "index";
         ///index로 바꿔줌
@@ -26,7 +25,6 @@ public class DefaultPageController {
     public String test(){
         return "test";
     }
-
     //2024-07-10
     @GetMapping("/page1")
     public String page1(){
