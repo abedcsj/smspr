@@ -1,12 +1,8 @@
-package com.example.smspr.controller;
+package com.example.smspr.controller.page;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @RequestMapping("") //무조건 선언해야함
 @Controller
@@ -15,7 +11,7 @@ public class DefaultPageController {
     //2024-07-09
     @GetMapping("/index")
     public String index(){
-        return "index";
+        return "page1";
     }
 
     //아무것도 안 입력했을 때도 index로 가게함
