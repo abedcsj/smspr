@@ -25,15 +25,16 @@ public class DefaultRestController {
     @GetMapping("/login")
     public boolean login(@RequestParam String id, @RequestParam String pw){
         boolean result = false;
-        //System.out.println("id : " + id + "// pw" + pw);
+        System.out.println("id : " + id + "// pw" + pw);
         if("admin".equals(id)){
             if("abcd1234".equals(pw)){
                 result = true;
             }
         }
-
         return result;
     }
+
+
 
     @GetMapping("/login2")
     public Map<String, Object> login2(@RequestParam Map<String, Object> params){
@@ -56,8 +57,6 @@ public class DefaultRestController {
 
         returnData.put("result", result);
         returnData.put("msg", msg);
-
-
         return returnData;
     }
 
