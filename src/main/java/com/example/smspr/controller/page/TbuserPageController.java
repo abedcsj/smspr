@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/tbpost")
 @Controller
-public class TbpostPageController {
+public class TbuserPageController {
 
     //2024-07-10
     @GetMapping("/{page}")
