@@ -24,7 +24,6 @@ public class TbpostRestController {
     ) {
         this.tbpostRepository = tbpostRepository;
     }
-
     //2024-07-10
     @GetMapping("/create")
     public Map<String, Object> create(@RequestParam Map<String, Object> params){
@@ -40,10 +39,6 @@ public class TbpostRestController {
         } else {
             resultCode = 200;
             Map<String, Object> tbpostMap = new HashMap<String, Object>();
-            //tbpostMap.put("order", tbpostList.size() + 1);
-            //tbpostMap.put("title", title);
-            //tbpostMap.put("content", content);
-            //tbpostList.add(tbpostMap);
             Tbpost tbpost = Tbpost.of(title, content);
             tbpostRepository.save(tbpost);
             resultData = tbpost.getId();

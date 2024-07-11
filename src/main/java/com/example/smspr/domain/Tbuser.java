@@ -21,10 +21,7 @@ public class Tbuser {
     @Setter@Column private String gender;
     @Setter@Column private String birth;
 
-    public Tbuser(){
 
-
-    }
 
     private Tbuser(String id, String name, String phone, String gender, String birth) {
         this.id = id;
@@ -32,6 +29,8 @@ public class Tbuser {
         this.phone = phone;
         this.gender = gender;
         this.birth = birth;
+    }
+    public Tbuser(){
     }
 
     public static Tbuser getTbuser(String name, String phone, String gender, String birth){
