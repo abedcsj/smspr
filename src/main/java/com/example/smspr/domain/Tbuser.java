@@ -1,5 +1,6 @@
 package com.example.smspr.domain;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -30,6 +31,7 @@ public class Tbuser {
         this.gender = gender;
         this.birth = birth;
     }
+
     public Tbuser(){
     }
 

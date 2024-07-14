@@ -1,7 +1,8 @@
 package com.example.smspr.controller;
 
 import com.example.smspr.domain.Tbuser;
-import com.example.smspr.repository.TbuserRepository;
+import com.example.smspr.service.TbuserService;
+import com.example.smspr.service.impl.TbuserServiceImpl;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,44 +16,21 @@ import java.util.Map;
 @RestController
 public class TbuserRestController {
 
-    private final TbuserRepository tbuserRepository;
+    private final TbuserService tbuserService;
 
-    public TbuserRestController(TbuserRepository tbuserRepository){
-        this.tbuserRepository = tbuserRepository;
+    public TbuserRestController(TbuserService tbuserService)
+    {
+        this.tbuserService = tbuserService;
     }
     @GetMapping("/create")
     public Map<String, Object> create(@RequestParam Map<String, Object> params){
-        Map<String, Object> returnData = new HashMap<String, Object>();
-        String resultCode;
-        String resultData = "";
-        String name = params.get("name") + "";
-        String phone= params.get("phone") + "";
-        String gender= params.get("gender") + "";
-        String birth= params.get("birth") + "";
-
-
-        if("".equals(name) || "null".equals(name)){
-            resultCode = "이름을 입력하시오";
-        } else if("".equals(phone) || "null".equals(phone)){
-            resultCode = "핸드폰 번호를 입력하시오";
-        } else if("".equals(gender) || "null".equals(gender)){
-            resultCode = "성별을 입력하시오";
-        }else if("".equals(birth) || "null".equals(birth)){
-            resultCode = "생년월일을 입력하시오";
-        }else {
-            resultCode = "성공";
-            Tbuser tbuser = Tbuser.getTbuser(name,phone,gender,birth);
-            tbuserRepository.save(tbuser);
-            resultData =tbuser.getId();
-        }
-        returnData.put("resultCode", resultCode);
-        returnData.put("resultData", resultData);
-        return returnData;
+        return tbuserService.create(params);
     }
 
 
 
-    @GetMapping("/update")
+
+    /*@GetMapping("/update")
     public Map<String, Object> update(@RequestParam Map<String, Object> params){
         Map<String, Object> returnData = new HashMap<String, Object>();
         String resultCode = "";
@@ -127,5 +105,9 @@ public class TbuserRestController {
         return returnData;
     }
 
-
+*/
+    @GetMapping("/list")
+    public Map<String, Object> list(){
+       return tbuserService.list();
+    }
 }
