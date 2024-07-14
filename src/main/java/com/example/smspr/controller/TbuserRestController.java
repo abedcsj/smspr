@@ -30,7 +30,7 @@ public class TbuserRestController {
 
 
 
-    /*@GetMapping("/update")
+    @GetMapping("/update")
     public Map<String, Object> update(@RequestParam Map<String, Object> params){
         Map<String, Object> returnData = new HashMap<String, Object>();
         String resultCode = "";
@@ -105,7 +105,7 @@ public class TbuserRestController {
         return returnData;
     }
 
-*/
+
     @GetMapping("/list")
     public Map<String, Object> list(){
        return tbuserService.list();
