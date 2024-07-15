@@ -3,13 +3,12 @@ package com.example.smspr.dto;
 
 public class CommonDto {
 
-    public static class postDetailResDto{
+    public static class TbuserDetailResDto{
 
         String id;
-
         String name;
-
-        String birth;
+        String phone;
+        String gender;
 
     }
 

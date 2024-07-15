@@ -50,14 +50,62 @@ public class TbuserServiceImpl implements TbuserService {
 
 
     };
-    public Map<String, Object> update(Map<String, Object> param){
-        return null;
+
+    public Map<String, Object> update(Map<String, Object> params){
+        Map<String, Object> returnData = new HashMap<String, Object>();
+        String resultCode = "";
+        String resultData = "";
+        String id = params.get("id") + "";
+        Tbuser tbuser = tbuserRepository.findById(id).orElseThrow(() -> new RuntimeException(""));
+        String name = params.get("name") + "";
+        String phone = params.get("phone") + "";
+        String birth = params.get("birth") + "";
+        String gender = params.get("gender") + "";
+
+        if("".equals(name) || "null".equals(name)){
+        } else {
+            tbuser.setName(name);
+            resultCode = "수정이 완료되었습니다";
+        }
+        if("".equals(phone) || "null".equals(phone)){
+        } else {
+            tbuser.setPhone(phone);
+            resultCode = "수정이 완료되었습니다";
+        }
+        if("".equals(birth) || "null".equals(birth)){
+        } else {
+            tbuser.setBirth(birth);
+            resultCode = "수정이 완료되었습니다";
+        }
+        if("".equals(gender) || "null".equals(gender)){
+        } else {
+            tbuser.setGender(gender);
+            resultCode = "수정이 완료되었습니다";
+        }
+        tbuserRepository.save(tbuser);
+        returnData.put("resultCode", resultCode);
+        return returnData;
+
     };
     public Map<String, Object> delete(String id){
-        return null;
+        Map<String, Object> returnData = new HashMap<String, Object>();
+        String resultCode ="삭제에 성공했습니다";
+        String resultData = "";
+        Tbuser tbuser = tbuserRepository.findById(id).orElseThrow(() -> new RuntimeException(""));
+        tbuserRepository.delete(tbuser);
+
+        returnData.put("resultCode", resultCode);
+        return returnData;
     };
     public Map<String, Object> detail(String id){
-        return null;
+        Map<String, Object> returnData = new HashMap<String, Object>();
+        int resultCode = 200;
+        returnData.put("resultCode", resultCode);
+        Tbuser tbuser = tbuserRepository.findById(id).orElseThrow(() -> new RuntimeException(""));
+        returnData.put("resultData", tbuser);
+
+
+        return returnData;
     };
     public Map<String, Object> list(){
         Map<String, Object> returnData = new LinkedHashMap<String, Object>();
